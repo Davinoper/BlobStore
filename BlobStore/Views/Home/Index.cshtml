@@ -1,0 +1,74 @@
+﻿@model BlobStore.Models.ViewModels.ProdutoViewModel;
+
+@{
+    ViewData["Title"] = "Home Page";
+    List<Produto>? produtos = ViewData["Produtos"] as List<Produto>;
+}
+
+<div class="container mt-4">
+
+    <div class="text-center mb-5">
+        <h1 class="display-4">Bem-vindo ao <span class="text-primary">BlobStore</span></h1>
+        <p class="lead">Cadastre produtos com imagem armazenada no Azure Blob Storage</p>
+    </div>
+
+    <div class="card shadow-sm mb-5">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Cadastrar Produto</h4>
+        </div>
+        <div class="card-body">
+            <form asp-controller="Home" asp-action="SendProduct" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label asp-for="Nome" class="form-label">Nome</label>
+                    <input type="text" asp-for="Nome" class="form-control" placeholder="Nome do produto">
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Descricao" class="form-label">Descrição</label>
+                    <input type="text" asp-for="Descricao" class="form-control" placeholder="Descrição detalhada">
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Preco" class="form-label">Preço</label>
+                    <input type="text" asp-for="Preco" class="form-control" placeholder="Ex: 99.90">
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="file" class="form-label">Imagem do Produto</label>
+                    <input type="file" asp-for="file" class="form-control">
+                </div>
+
+                <div class="text-end">
+                    <button class="btn btn-success px-4" type="submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        @if (produtos != null && produtos.Any())
+        {
+            <h4 class="mb-3">Produtos Cadastrados</h4>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                @foreach (var item in produtos)
+                {
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="@item.ImageUrl" class="card-img-top" alt="Imagem do produto" style="object-fit: cover; height: 200px;">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Nome</h5>
+                                <p class="card-text">@item.Descricao</p>
+                                <p class="card-text fw-bold text-success">R$ @item.Preco</p>
+                                <p class="card-text text-muted" style="font-size: 0.85rem;">@item.DataCadastro?.ToString("dd/MM/yyyy HH:mm")</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info">Nenhum produto cadastrado.</div>
+        }
+    </div>
+</div>

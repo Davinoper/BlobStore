@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>4c49baee-9cab-49a3-9041-9688236353a6</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Data.Tables" Version="12.9.1" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.22.2" />
+    <PackageReference Include="Azure.Storage.Files.Shares" Version="12.20.1" />
+    <PackageReference Include="Azure.Storage.Queues" Version="12.20.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Azure" Version="1.7.6" />
+    <PackageReference Include="Microsoft.SqlServer.Server" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
