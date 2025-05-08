@@ -1,0 +1,57 @@
+## Build results
+bin/
+obj/
+out/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vs/
+.vscode/
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## Rider / JetBrains
+.idea/
+*.sln.iml
+
+## Logs
+*.log
+
+## ASP.NET Core secrets
+secrets.json
+*.db
+
+## EF Core Migrations snapshot files (optional)
+Migrations/*.Designer.cs
+
+## Publish output
+publish/
+wwwroot/dist/
+wwwroot/lib/
+
+## Node modules (if using npm or yarn)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+## Visual Studio Code
+.vscode/
+
+## Others
+*.swp
+*.bak
+*.tmp
+
+## Azure
+*.azure/*
+.env
+.env.*
+/BlobStore/appsettings.json
+/BlobStore/appsettings.example.Development.json
+/BlobStore/Properties/ServiceDependencies/local/storage1.arm.json
+/BlobStore/Properties/serviceDependencies.local.json
